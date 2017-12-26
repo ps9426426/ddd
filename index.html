@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" >
+	<meta name="format-detection"content="telphone=no,eamil=no">
+	<meta http-equiv="X-UA-Compatible"content="IE=Edge,chrome=1.0">
+	<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="fonts/iconfont.css">
+</head>
+<body>
+	<div class="box">
+		<header>
+			<a href="javascript:;" class="user"><b class="iconfont">&#xe607;</b></a>
+			<a href="javascript:;">网易</a>
+			<a href="javascript:;"><b class="iconfont">&#xe707;</b>&nbsp;&nbsp;<b class="iconfont">&#xe699;</b></a>
+		</header>
+		<section>
+			<div class="top">
+				<nav class="iscroll">
+					<ul class="uls">
+						<li>推荐</li>
+						<li>新闻</li>
+						<li>娱乐</li>
+						<li>体育</li>
+						<li>财经</li>
+						<li>汽车</li>
+						<li>军事</li>
+						<li>直播</li>
+						<li>视频</li>
+						<li>贩子</li>
+						<li>时尚</li>
+						<li>本地</li>
+						<li>网易好</li>
+						<li>手机</li>
+						<li>科技</li>
+						<li>跟帖</li>
+						<li>教育</li>
+						<li>健康</li>
+						<li>航空</li>
+						<li>艺术</li>
+					</ul>
+					
+				</nav>
+				<p class="iconfont menu">&#xe6e0;</p>
+			</div>
+			<div class="one">
+				<input type="email" class="ema" placeholder="邮箱">
+				<input type="password" class="pass" placeholder="密码">
+				<p>试用账号关机</p>
+				<button>登陆</button>
+			</div>
+			<div class="two">
+				<ul class="list"></ul>
+			</div>
+			<div class="main">
+				<dl>
+					<dt><img src="img/4.jpg" alt=""></dt>
+					<dd>桥黑板 桥黑板桥黑板桥黑板桥黑板桥黑板桥黑板</dd>
+				</dl>
+			</div>
+		</section>
+	</div>
+	<script src="js/swiper-3.4.2.min.js"></script>
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/iscroll5.js"></script>
+	<script>
+		var uls=document.querySelector(".uls");
+		var lis=uls.querySelectorAll("li");
+		var sum=0;
+		for(var i=0;i<lis.length;i++){
+			sum+=lis[i].offsetWidth;
+		}
+		uls.style.width=sum+"px";
+
+		var myIScroll= new IScroll(".iscroll",{			
+			scrollX:true,
+			scrollY:false,
+			scrollbars:true
+		})
+
+		$(function(){
+			$(".user").on("click",function(){
+				$(".one").show();
+				$(".box").addClass('bg')
+			})
+			$(".menu").on("click",function(){
+				$(".two").show();
+				$(".uls").find("li").clone().appendTo('.list');
+			
+			})
+		})
+		$.ajax({
+			url:"css/data.json",
+			success:function(data){
+				xuanran(data);
+			}
+		})
+		function xuanran(data){
+			$.each(data.list,function(i,val){
+
+			})
+		}
+	</script>
+</body>
+</html>
